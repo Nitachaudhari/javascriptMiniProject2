@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fruit search</title>
+    <style>
+        body {
+            
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .main-container{
+            border: 1px solid lightgrey;
+            width: 50%;
+            padding: 20px;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+
+        .search-bar input {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .fruit-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .fruit-list li {
+            padding: 10px;
+            font-size: 18px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <h1>Fruit Search</h1>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="enter text to search">
+        </div>
+
+        <ul class="fruit-list" id="fruit-list">
+            <li>Apple</li>
+            <li>Pineapple</li>
+            <li>Orange</li>
+            <li>Banana</li>
+            <li>Kiwi</li>
+            <li>Pomegranet</li>
+            <li>Custurd apple</li>
+            <li>Strawberry</li>
+            <li>papaya</li>
+            <li>Watermelon</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const fruitList = document.getElementById('fruit-list');
+    const fruits = Array.from(fruitList.children);
+    console.log(fruits);
+
+    searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.toLowerCase();
+
+        fruits.forEach(fruit => {
+            const fruitName = fruit.textContent.toLowerCase();
+            if (fruitName.includes(searchTerm)) {
+                fruit.style.display = 'block';
+            }
+            else {
+
+                fruit.style.display = 'none';
+            }
+        })
+    })
+
+
+</script>

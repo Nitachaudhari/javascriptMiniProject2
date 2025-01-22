@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Post</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Create a Post</h1>
+  <form id="post-form">
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" placeholder="Enter title" required>
+
+    <label for="body">Body</label>
+    <textarea id="body" name="body" placeholder="Enter body" rows="4" required></textarea>
+
+    <button type="submit">Submit Post</button>
+  </form>
+
+  <div id="response-container"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

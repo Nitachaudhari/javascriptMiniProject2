@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .controls select, .controls button {
+            padding: 10px;
+            font-size: 14px;
+        }
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .product-item {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+        }
+        .pagination {
+            margin-top: 20px;
+            display: flex;
+            justify-content: left;
+            gap: 10px;
+        }
+        .pagination button {
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        #currentPage{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product Gallery</h1>
+    <div class="controls">
+        <select id="filterCategory">
+            <option value="all">All Categories</option>
+            <option value="electronics">Electronics</option>
+            <option value="furniture">Furniture</option>
+        </select>
+        <select id="sortOption">
+            <option value="name-asc">Name (A-Z)</option>
+            <option value="name-desc">Name (Z-A)</option>
+            <option value="price-asc">Price (Low to High)</option>
+            <option value="price-desc">Price (High to Low)</option>
+        </select>
+    </div>
+    <div id="productList" class="product-list"></div>
+    <div class="pagination">
+        <button id="prevPage">Previous</button>
+        <span id="currentPage">page 1</span>
+        <button id="nextPage">Next</button>
+    </div>
+
+    <script src="sorting.js"></script>
+</body>
+</html>

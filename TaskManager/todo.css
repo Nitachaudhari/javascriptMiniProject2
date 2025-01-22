@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+input {
+  margin-right: 10px;
+  padding: 10px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+
+button {
+  /* margin: 5px; */
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  padding: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+tr.completed td {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.counter {
+  margin-top: 10px;
+}
+
+.main-container{
+  padding: 20px;
+  border: 1px solid lightgrey;
+  width: 30%;
+  background-color: rgba(136, 136, 227, 0.515);
+}

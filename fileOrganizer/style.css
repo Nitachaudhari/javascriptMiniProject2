@@ -1,0 +1,130 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.container{
+    padding: 20px;
+}
+
+.main-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.folders,.files{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.folder,.file{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    /* height: 50px; */
+    cursor: pointer;
+    border: 1px solid rgb(170, 164, 164);
+    text-align: center;
+    color: black;
+    font-weight: bold; 
+    margin: 20px;
+    padding: 10px;
+}
+
+.folder{
+    background-color: yellow;
+    box-shadow: rgb(73, 25, 6) 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px, rgb(81, 9, 9) 10px -10px, rgb(255, 255, 255) 20px -20px 0px -3px, rgb(57, 48, 1) 20px -20px, rgb(255, 255, 255) 30px -30px 0px -3px;
+
+}
+.file{
+    height: fit-content;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.folder:hover,.file:hover{
+    background-color: black;
+    color: white;
+}
+
+img{
+    max-width: 100px;
+}
+
+input{
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+button{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(5, 102, 5);
+    /* margin:20px; */
+    width: fit-content;
+}
+
+i{
+    font-size: 35px;
+}
+
+#binIcon{
+    display: flex;
+    justify-content: end;
+}
+
+.file button{
+    background-color: red;
+    margin: 10px;
+    padding: 7px;
+}
+#binFiles{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.bin-file{
+    padding: 20px;
+    /* margin: 10px; */
+    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+
+.bin-file>div{
+    display: flex;
+}
+.bin-file button+button{
+ background-color: red;
+}
+
+.bin-file button{
+    margin: 5px;
+}
+
+#clearAllBin,#clearAutoBin{
+    background-color:red;
+}
+
+.bin-container button{
+    margin-top: 30px;
+}
+
+.file div{
+    display: flex;
+}
+
+.file div>:first-child{
+    background-color: green;
+}

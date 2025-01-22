@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Management App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #user-list {
+      margin-top: 20px;
+      list-style: none;
+
+    }
+    #user-list li {
+      margin-bottom: 10px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      width: 200px;
+      height: 50px;
+      padding: 20px;
+      border-radius: 12px;
+
+    }
+    #pagination-controls {
+      margin-top: 20px;
+    }
+    input{
+        padding: 10px;
+    }
+    select{
+        padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>User Management</h1>
+
+  <!-- Search by Name -->
+  <input type="text" id="search" placeholder="Search users by name" oninput="loadUsers()">
+  
+  <!-- Filter by Email Domain -->
+  <select id="email-domain-filter" onchange="loadUsers()">
+    <option value="">Select email domain</option>
+    <option value="example.com">example.com</option>
+    <option value="gmail.com">gmail.com</option>
+    <option value="yahoo.com">yahoo.com</option>
+    <option value=".com">.com</option>
+  </select>
+
+  <ul id="user-list"></ul>
+
+  <!-- Pagination Controls -->
+  <div id="pagination-controls">
+    <button id="prev-btn" onclick="changePage(-1)">Previous</button>
+    <span id="page-info">Page 1</span>
+    <button id="next-btn" onclick="changePage(1)">Next</button>
+  </div>
+
+  <script src="usermgmt.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "users": {
+    "1002": {
+      "name": "John Doe",
+      "email": "john@example.com"
+    },
+    "1005": {
+      "name": "Jane Smith",
+      "email": "jane@example.com"
+    }
+  }
+}

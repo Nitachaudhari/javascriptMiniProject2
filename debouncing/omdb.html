@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search with Debouncing</title>
+    <style>
+        #results{
+            margin-top:10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        p{
+            margin: 5px;
+        }
+
+        .movie-title{
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .movie-title:hover{
+            background-color: #f0f0f0;
+        }
+
+        #movie-details{
+            /* border: 1px solid black; */
+            border-radius: 8px;
+            width: 300px;
+            margin-top: 20px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        img{
+            width: 50%;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie Search</h1>
+    <input type="text" id="search-input" placeholder="search for a movie...">
+    <div id="results"></div>
+    <div id="movie-details"></div>
+
+    <script src="omdb.js"></script>
+</body>
+</html>

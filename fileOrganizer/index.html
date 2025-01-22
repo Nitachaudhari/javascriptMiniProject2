@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Organizer System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+</head>
+<body>
+    <div class="main-container" id="main-container">
+        <h1>File Organizer System</h1>
+        <div id="binIcon"><i class="fa-solid fa-trash"></i></div>
+    </div>  
+   
+    <div>
+        <div class="folders" id="folders"></div>
+
+        <div class="container" id="container">
+            <input type="text" id="searchInput" placeholder="Search files...">
+            <div id="sortbtn"></div>
+        </div>
+
+        <div class="bin-container" id="bin" style="display: none;">
+            <h3>Bin</h3>
+            <div id="binFiles"></div>
+            <button id="clearAllBin">Clear All</button>
+            <button id="clearAutoBin">Clear Autodelete bin</button>
+        </div>
+        <div class="files" id="files"></div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

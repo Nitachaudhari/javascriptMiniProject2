@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>post method add name and email</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1>Enter details</h1>
+    <form action="">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter name">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter Email">
+        <input type="submit" value="Create user">
+    </form>
+</body>
+
+</html>
+
+<script>
+    let form = document.querySelector('form');
+    form.addEventListener('submit', createUser);
+
+    function createUser(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const userId = Math.floor(Math.random() * 10000) + 1;
+        let timestamp=new Date().toLocaleString();
+        const requestOption = {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, email,timestamp }),
+            redirect: 'follow'
+        };
+
+        fetch(`https://practice-9b2ec-default-rtdb.firebaseio.com/users/${userId}.json`, requestOption)
+            .then(resp => {
+                if (!resp.ok) throw new Error('Network response was not ok');
+                return resp.json();
+            })
+            .then(data => {
+                console.log(data);
+                window.location.href = "allMethod.html";
+                // document.getElementById('message').textContent = 'User created successfully!';
+            })
+            .catch(err => {
+                console.error(err);
+                // document.getElementById('message').textContent = 'Error creating user!';
+            });
+    }
+
+</script>

@@ -1,0 +1,67 @@
+table,td, th, tr{
+    border-collapse: collapse;
+    border: 1px solid black;
+    padding: 15px;
+    margin: 10px;
+}
+
+thead{
+    background-color:rgb(90, 90, 214) ;
+    color: white;
+}
+
+#error-msg{
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    margin: 10px;
+    color: white;
+    font-weight: bold;
+}
+#addBtn{
+    background-color: blue;
+}
+.edit-btn{
+    background-color: green;
+}
+
+.del-btn{
+    background-color: red;
+}
+
+form{
+    width: 300px;
+    border: 1px solid lightgrey;
+    padding: 20px;
+    margin: 20px;
+}
+
+form input{
+    width: 90%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid rgb(82, 80, 80);
+}
+
+form label{
+    margin: 10px;
+}
+
+form input[type="submit"]{
+    width: 50%;
+    color: white;
+    background-color: green;
+    border: none;
+    font-weight: bold;
+}
+
+h1{
+    margin: 25px;
+}

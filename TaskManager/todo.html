@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+  <h1>Task Manager</h1>
+  <div class="main-container">
+    <input id="taskInput" type="text" placeholder="Add a new task" />
+    <button id="addTaskBtn">Add Task</button>
+    
+    <div>
+      <button id="filterAll">All Tasks</button>
+      <button id="filterCompleted">Completed</button>
+      <button id="filterIncomplete">Incomplete</button>
+      <button id="sortTasks">Sort Alphabetically</button>
+    </div>
+  
+  </div>
+  
+  <div class="counter">
+    <p>Total Tasks: <span id="totalTasks">0</span></p>
+    <p>Completed Tasks: <span id="completedTasks">0</span></p>
+    <p>Incomplete Tasks: <span id="incompleteTasks">0</span></p>
+  </div>
+  
+  <table id="taskTable">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Task</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Tasks will be dynamically added here -->
+    </tbody>
+  </table>
+  
+ 
+  
+  <script src="todo.js"></script>
+</body>
+</html>

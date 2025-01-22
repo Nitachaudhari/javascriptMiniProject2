@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase Paginated User List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    #user-list {
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .userCard {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      width: 300px;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 12px;
+    }
+
+    .pagination {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Firebase User List</h1>
+
+  <div id="user-list"></div>
+
+  <div class="pagination">
+    <button id="prevBtn" disabled>Previous</button>
+    <button id="nextBtn">Next</button>
+  </div>
+</body>
+
+</html>
+
+<script>
+  let users = [];
+  let currentPage = 1;
+  const usersPerPage = 5;
+
+  const fetchUsers = async () => {
+    const url = 'https://practice-9b2ec-default-rtdb.firebaseio.com/users.json';  
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      users = Object.values(data);  // Convert object to array
+      loadUsers();  // Load the users after fetching data
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  // Load users based on the current page
+  const loadUsers = () => {
+    const totalPages = Math.ceil(users.length / usersPerPage);
+    const startIndex = (currentPage - 1) * usersPerPage;
+    const endIndex = startIndex + usersPerPage;
+    const paginatedUsers = users.slice(startIndex, endIndex);
+
+    // Display users
+    displayUsers(paginatedUsers);
+
+    // Update pagination controls
+    updatePagination(totalPages);
+  };
+
+  // Display users in the list
+  const displayUsers = (users) => {
+    const userList = document.getElementById('user-list');
+    userList.innerHTML = '';  // Clear previous list
+    users.forEach(user => {
+      const userElement = document.createElement('div');
+      userElement.classList.add('userCard');
+      userElement.innerHTML = `
+        <h3>${user.name}</h3>
+        <p>Email: ${user.email}</p>
+      `;
+      userList.appendChild(userElement);
+    });
+  };
+
+  const updatePagination = (totalPages) => {
+    document.getElementById('prevBtn').disabled = currentPage <= 1;
+    document.getElementById('nextBtn').disabled = currentPage >= totalPages;
+  };
+
+  const changePage = (direction) => {
+    currentPage += direction;
+    loadUsers();  
+  };
+
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    changePage(-1);
+  });
+
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    changePage(1);
+  });
+
+  fetchUsers();
+</script>

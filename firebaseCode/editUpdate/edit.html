@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit data</title>
+</head>
+
+<body>
+
+    <form action="">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter name">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter Email">
+        <input type="submit" value="Create user">
+    </form>
+
+</body>
+
+</html>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    console.log(urlParams);
+    const userId = urlParams.get('userId');
+    console.log(userId);
+
+    let name = document.getElementById('name');
+    let email = document.getElementById('email');
+
+    fetch(`https://practice-9b2ec-default-rtdb.firebaseio.com/users/${userId}.json`, {
+        method: "GET",
+        redirect: "follow"
+    })
+        .then(resp => resp.json())
+        .then(data => {
+            console.log(data);
+            name.value = data.name,
+                email.value = data.email
+        })
+        .catch(err => console.log(err));
+
+    document.querySelector('form').addEventListener('submit', updateUser);
+
+    function updateUser() {
+        event.preventDefault();
+
+        if (!email.value || !name.value) {
+            alert("All fields are required");
+        }
+        else {
+            const requestOptions = {
+                method: "PATCH",
+                Headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: email.value,
+                    name: name.value,
+
+                }),
+                redirect: "follow",
+            }
+            fetch(`https://practice-9b2ec-default-rtdb.firebaseio.com/users/${userId}.json`, requestOptions)
+                .then(resp => resp.json)
+                .then(data => {
+                    if (data) { }
+                    alert('Data Successfully updated');
+                    window.location.href = "update.html";
+                })
+                .catch(err => console.log(err));
+        }
+    }
+
+
+</script>
